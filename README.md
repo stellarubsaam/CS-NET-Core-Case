@@ -4,7 +4,7 @@ Een .NET Core 5.0 Web API met SQLite database, geschreven in C# met Swagger endp
 
 ## Instructies
 
--Microsoft Visual Studio 2019
+- Microsoft Visual Studio 2019
 
 Het project wordt opgestart door hem te builden in Visual Studio d.m.v. IISExpress, dan wordt een browser geopend met daarop https://localhost:44396/index.html. Deze pagina geeft dan de Swagger implementatie weer.
 
@@ -16,12 +16,9 @@ Ik ben erg tevreden over hoe ik uiteindelijk de CRUD endpoints werkende heb gekr
 
 ## Versions
 
--.NET 5.0 (SDK Version: 5.0.302)
+- .NET 5.0 (SDK Version: 5.0.302)
 
 Package References:
-
--Microsoft.EntityFrameworkCore.Sqlite: 5.0.8
-
--Microsoft.EntityFrameworkCore.Tools: 5.0.8
-
--Swashbuckle.AspNetCore: 6.1.5
+- Microsoft.EntityFrameworkCore.Sqlite: 5.0.8
+- Microsoft.EntityFrameworkCore.Tools: 5.0.8
+- Swashbuckle.AspNetCore: 6.1.5
