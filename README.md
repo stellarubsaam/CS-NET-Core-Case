@@ -12,7 +12,7 @@ Het project wordt opgestart door hem te builden in Visual Studio d.m.v. IISExpre
 
 Het is jammer dat ik ondanks kennis met databases in Laravel en Angular nog steeds moeite heb met de daadwerkelijke connectie leggen tussen de geschreven code en de database. Ook omdat dit de eerste keer is dat ik Swagger gebruik, had ik moeite met begrijpen waar het mis ging toen ik 404 foutmeldingen kreeg. 
 
-Ik ben erg tevreden over hoe ik uiteindelijk de CRUD endpoint werkende heb gekregen door erachter te komen dat er iets mis was met UseEndpoints in de Startup.Configure. Daar moest ik gebruik maken van de MapDefaultControllerRoute. Het duurde bijna een hele dag voordat ik de 404 error die ik kreeg kon verklaren.
+Ik ben erg tevreden over hoe ik uiteindelijk de CRUD endpoints werkende heb gekregen door erachter te komen dat er iets mis was met UseEndpoints in de Startup.Configure. Daar moest ik gebruik maken van de MapDefaultControllerRoute. Het duurde bijna een hele dag voordat ik de 404 error die ik kreeg kon verklaren.
 
 ## Versions
 
