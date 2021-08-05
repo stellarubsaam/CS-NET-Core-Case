@@ -20,5 +20,7 @@ Ik ben erg tevreden over hoe ik uiteindelijk de CRUD endpoints werkende heb gekr
 
 Package References:
 -Microsoft.EntityFrameworkCore.Sqlite: 5.0.8
+
 -Microsoft.EntityFrameworkCore.Tools: 5.0.8
+
 -Swashbuckle.AspNetCore: 6.1.5
