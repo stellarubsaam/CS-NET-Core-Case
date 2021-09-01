@@ -1,8 +1,7 @@
-﻿namespace CS_NET_Core.Models
+﻿namespace CS_NET_Core.Queries
 {
-    public class Address
+    public class GetAllAddressesQuery
     {
-        public int Id { get; set; }
         public string Street { get; set; }
         public string StreetNumber { get; set; }
         public string PostalCode { get; set; }

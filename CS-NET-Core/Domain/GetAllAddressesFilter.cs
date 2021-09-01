@@ -1,8 +1,7 @@
-﻿namespace CS_NET_Core.Models
+﻿namespace CS_NET_Core.Domain
 {
-    public class Address
+    public class GetAllAddressesFilter
     {
-        public int Id { get; set; }
         public string Street { get; set; }
         public string StreetNumber { get; set; }
         public string PostalCode { get; set; }

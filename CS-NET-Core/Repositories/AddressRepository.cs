@@ -1,6 +1,6 @@
-﻿using CS_NET_Core.Models;
+﻿using CS_NET_Core.Domain;
+using CS_NET_Core.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,9 +30,13 @@ namespace CS_NET_Core.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Address>> Get()
+        public async Task<IEnumerable<Address>> Get(GetAllAddressesFilter filter = null)
         {
-            return await _context.Addresses.ToListAsync();
+            var queryable = _context.Addresses.AsQueryable();
+
+            queryable = AddFiltersOnQuery(filter, queryable);
+
+            return await queryable.ToListAsync();
         }
 
         public async Task<Address> Get(int id)
@@ -44,6 +48,15 @@ namespace CS_NET_Core.Repositories
         {
             _context.Entry(address).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+        }
+
+        private static IQueryable<Address> AddFiltersOnQuery(GetAllAddressesFilter filter, IQueryable<Address> queryable)
+        {
+            if(filter.Street != null || filter.StreetNumber != null || filter.PostalCode != null || filter.Town != null || filter.Country != null)
+            {
+                queryable = queryable.Where(x => x.Street == filter.Street || x.StreetNumber == filter.StreetNumber || x.PostalCode == filter.PostalCode || x.Town == filter.Town || x.Country == filter.Country);
+            }
+            return queryable;
         }
     }
 }

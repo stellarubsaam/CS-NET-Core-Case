@@ -1,11 +1,11 @@
 ﻿using CS_NET_Core.Models;
 using CS_NET_Core.Repositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using CS_NET_Core.Queries;
+using CS_NET_Core.Domain;
+using AutoMapper;
 
 namespace CS_NET_Core.Controllers
 {
@@ -14,17 +14,21 @@ namespace CS_NET_Core.Controllers
     public class AddressController : ControllerBase
     {
         private readonly IAddressRepository _addressRepository;
+        public AddressContext _context;
+        public IMapper _mapper;
 
-        public AddressController(IAddressRepository addressRepository)
+        public AddressController(IAddressRepository addressRepository, AddressContext context, IMapper mapper)
         {
             this._addressRepository = addressRepository;
+            this._context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Address>> GetAddresses()
+        public async Task<IEnumerable<Address>> GetAddresses([FromQuery] GetAllAddressesQuery query)
         {
-            //return await _addressRepository.Get();
-            return await _addressRepository.Get();
+            var filter = _mapper.Map<GetAllAddressesFilter>(query);
+            return await _addressRepository.Get(filter);
         }
 
         [HttpGet("{id}")]
